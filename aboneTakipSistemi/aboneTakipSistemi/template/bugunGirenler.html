@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <h3>Bugün Giriş Yapan Kullanıcılar</h3>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th> Adı Soyadı </th>
+                        <th> Telefon</th>
+                        <th> Girdiği Zaman </th>
+                        <th> Girdiği Alan </th>
+                        <th> Çıktığı Zaman </th>
+                        <th> Tutar </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        {% for kullanicilar in kullanicilar %}
+                    <tr>
+                        <td> <a class="nav-link" href="/kullaniciarama/{{kullanicilar.user.id}}">{{kullanicilar.user.user.first_name}} {{kullanicilar.user.user.last_name}}</a></td>
+                        <td> {{kullanicilar.user.telefonNumarasi}} </td>
+                        <td> {{kullanicilar.girdigiZaman}} </td>
+                        <td> {{kullanicilar.girdigiYer}} </td>
+                        <td> {{kullanicilar.ciktigiZaman}} </td>
+                        <td> {{kullanicilar.odenen_tutar}} </td>
+
+                    </tr>
+                    {% endfor %}
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    {% endblock %}

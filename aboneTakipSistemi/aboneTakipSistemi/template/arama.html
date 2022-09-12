@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-3">
+            <h3>Kullanıcı Bilgileri</h3>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th> Adı Soyadı </th>
+                        <th> Telefon</th>
+                        <th> Bakiye </th>
+                        <th> Kullanım Tipi </th>
+                        <th> Kullanım Alanı </th>
+                        <th> Hesap Olusturma Tarihi </th>
+                        <th> Giriş </th>
+                        <th> Çıkış </th>
+                        <th> Kart Id </th>
+                        <th> Admin </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> <a class="nav-link">{{arama.user.first_name}}
+                            {{arama.user.last_name}}</a></td>
+                        <td> {{arama.telefonNumarasi}} </td>
+                        <td> {{arama.bakiye}}</td>
+                        <td>{{arama.kullanimTipi}} </td>
+                        <td>{% for a in data %}
+                            {{a}}
+                            <br>
+                            {% endfor %}
+                        </td>
+
+                        <td> {{arama.hesap_olusturma_tarihi}}</td>
+                        <td><a class="btn btn-primary" href="/kullanici_giris/{{arama.id}}">Giriş</a></td>
+                        <td><a class="btn btn-danger" href="/kullanici_cikis/{{arama.id}}">Çıkış</a></td>
+                        <td> {{arama.kartId}}</td>
+                        <td> {{arama.admin}}</td>
+                    </tr>
+
+
+
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <div class="col-6">
+
+                <div class="col-md-10">
+                    <h4>Kullanım Geçmişi </h4>
+                </div>
+
+                <table class="table">
+                    <thead class="thead-dark">
+
+                        <tr>
+                            <th>Giriş</th>
+                            <th>Kullandığı Alan</th>
+                            <th>Çıkış</th>
+                            <th>Ödenen Tutar</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>{% for a in gecmis %}
+                        <tr>
+                            <td> {{a.girdigiZaman}} </th>
+                            <td> {{a.girdigiYer}} </td>
+                            <td> {{a.ciktigiZaman}}</td>
+                            <td> {{a.odenen_tutar}}</td>
+
+                        </tr>
+
+                        {% endfor %}
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-6">
+                <div class="col-md-10">
+
+                    <div class="col-md-8">
+                        <h4>Bakiye Geçmişi </h4>
+                    </div>
+
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th> Yüklenen Bakiye </th>
+                                <th> Yüklenen Zaman </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+
+                            </tr>
+                            {% for a in bakiye %}
+                            <tr>
+                                <td> {{a.yuklenenBakiye}}</td>
+                                <td>{{a.yuklenenZaman}} </td>
+
+                            </tr>
+                            {%endfor%}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

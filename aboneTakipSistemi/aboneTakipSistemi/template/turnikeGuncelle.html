@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <h4>Turnike Güncelle</h4>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <form action="{% url 'aboneApp:turnikeGuncelle' guncelle.id %}" method="post">
+                {% csrf_token %}
+
+                <!-- <div class="form-group">
+                <span>Kullanılacağı Alan</span>
+                <select id="kullanimAlani" name="kullanimAlani" class="form-control">
+                    {% for kullanimAlani in alan %}
+                      <option value="{{kullanimAlani.id}}">{{kullanimAlani.kullanimAlani}}</option>
+                      {%endfor%}
+                </select>
+                </div> -->
+
+                <div class="form-group">
+                    <span>{{guncelle.KullanimAlani}} Turnike Numarası</span>
+                    <!-- <input type="range" max=7 min={{sayi}} step="3" value="{{sayi}}" id="cark"> -->
+                    <select  id="turnikeId" multiple name="turnikeId" class="form-control">
+                        {% for i in liste %}
+                        <option value="{{i}}">{{i}}</option>
+                        {%endfor%}
+                      </select>
+                </div>
+
+
+
+                <div class="form-group mt-2">
+                    <input class="btn btn-success" type="submit" value="Kaydet">
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+
+      <h3>Abone Güncelle</h3>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+
+      <form action="{% url 'aboneApp:guncelleFonksiyon' guncelle.id %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <span>Ad</span>
+          <input type="text" required="" name="ad" value="{{guncelle.user.first_name}}" class="form-control">
+
+        </div>
+        <div class="form-group">
+          <span>Soyad</span>
+          <input type="text" required="" name="soyad" value="{{guncelle.user.last_name}}" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <span>email</span>
+          <input type="email" id="email" name="email" value="{{guncelle.user.email}}" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <span>Telefon Numarası</span>
+          <input type="text" required="" name="telefon" value="{{guncelle.telefonNumarasi}}" class="form-control">
+        </div>
+<!-- 
+        <div class="form-group">
+          <span>Bakiye</span><br><br>
+          <input type="number" step="any" id="totalAmt" required="" name="bakiye" value="{{guncelle.bakiye}}"
+            class="form-control">
+        </div> -->
+
+        <div class="form-group">
+          <span>Kullanım Tipi</span><br><br>
+          <select id="kullanimTipi" name="kullanimTipi" value="{{guncelle.kullanimTipi}}" class="form-control">
+            <option value="Abone">Abone</option>
+            <option value="TekKullanim">Tek Giriş</option>
+          </select>
+          <br>
+        </div>
+
+        <div class="form-group">
+          <br>
+          <span>Kullanım Alani</span><br><br>
+          <select id="kullanimAlani" multiple name="kullanimAlani">
+            {% for kullanimAlani in alan %}
+            <option value="{{kullanimAlani.id}}">{{kullanimAlani.kullanimAlani}}</option>
+
+            {%endfor%}
+          </select>
+        </div>
+
+        <div class="form-group">
+          <span>Kart Numarası:</span>
+          <input type="text" required="" name="kartId" value="{{guncelle.kartId}}" class="form-control">
+        </div>
+
+        <div class="form-group mt-2">
+          <input class="btn btn-success" type="submit" value="Güncelle">
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

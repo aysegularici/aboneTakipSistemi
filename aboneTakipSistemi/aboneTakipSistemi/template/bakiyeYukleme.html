@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <h4>BAKİYE YÜKLE</h4>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <form action="{% url 'aboneApp:bakiye_yukle' guncelle.id %}" method="POST">
+        {% csrf_token %}
+
+        <div class="form-group">
+          <span>Yüklemek İstediğiniz Tutar</span>
+          <input type="number" step="any" min="0" step="0,1" id="totalAmt" required="" name="bakiye" class="form-control">
+        </div>
+
+        <div class="form-group mt-2">
+          <input class="btn btn-success" type="submit" value="Yükle">
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

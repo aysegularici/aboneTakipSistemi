@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <h4>Bakiye Rapor</h4>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th> Adı Soyadı </th>
+                            <th> Yüklenen Bakiye </th>
+                            <th> Yüklenen Zaman </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            
+                        </tr>
+                        {% for a in bakiye %}
+                        <tr>
+                            <td> {{a.user.user.first_name}} {{a.user.user.last_name}}</td>
+                            <td> {{a.yuklenenBakiye}}</td>
+                            <td>{{a.yuklenenZaman}} </td>
+
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-4" >
+            <h1>KULLANICILAR TABLOSU</h1>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Bakiye Yükle</th>
+                        <th>Güncelle</th>
+                        <th>Sil</th>
+                        <th> Adı Soyadı </th>
+                        <th> Telefon</th>
+                        <th> Bakiye </th>
+                        <th> Hesap Olusturma Tarihi </th>
+                        <th> Giriş </th>
+                        <th> Çıkış </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        {% for kullanicilar in kullanicilar %}
+                    <tr>
+                        <td><a class="btn btn-success" href="/bakiyeYuklemeAyarlari/{{kullanicilar.id}}">Bakiye
+                                Yükle</a></td>
+                        <td><a href="/ayarlar/{{kullanicilar.id}}">
+                                <img src="../static/image/png/pencil-2x.png" alt="">
+                            </a></td>
+                        <td><a href="/kullaniciSil/{{kullanicilar.id}}">
+                                <img src="../static/image/png/trash-2x.png" alt="">
+                            </a></td>
+                        <td> <a class="nav-link"
+                                href="/kullaniciarama/{{kullanicilar.id}}">{{kullanicilar.user.first_name}}
+                                {{kullanicilar.user.last_name}}</a></td>
+                        <td> {{kullanicilar.telefonNumarasi}} </td>
+                        <td> {{kullanicilar.bakiye}}</td>
+                        <td> {{kullanicilar.hesap_olusturma_tarihi}}</td>
+                        <td><a class="btn btn-primary" href="/kullanici_giris/{{kullanicilar.id}}">Giriş</a></td>
+                        <td><a class="btn btn-danger" href="/kullanici_cikis/{{kullanicilar.id}}">Çıkış</a></td>
+
+                    </tr>
+                    {% endfor %}
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    {% endblock %}

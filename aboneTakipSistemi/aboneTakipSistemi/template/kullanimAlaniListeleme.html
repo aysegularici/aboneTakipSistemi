@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <h3>KULLANIM ALANI TABLOSU</h3>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Alan Güncelle</th>
+                        <th>Sil</th>
+                        <th> Id </th>
+
+
+                        <th> Adı </th>
+                        <th> Abone Ücreti </th>
+                        <th> Tek Girişlik Ücret </th>
+                        <th> Kullanım Süresi </th>
+                        <th> Turnike Numarası </th>
+                        <th> Turnike Güncelle </th>
+                        
+
+
+            
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        {% for alan in alan %}
+                    <tr>
+                        <td><a href="/kullanimAlaniGuncellemeAyari/{{alan.id}}">
+                                <img src="../static/image/png/pencil-2x.png" alt="">
+                        <td><a href="/kullanimAlanisil/{{alan.id}}">
+                                <img src="../static/image/png/trash-2x.png" alt="">
+                            </a></td>
+                        <td> {{alan.id}} </th>
+                        <td> {{alan.kullanimAlani}} </th>
+                        <td> {{alan.abone_ucret}} </td>
+                        <td> {{alan.tek_girislik_ucret}}</td>
+                        <td> {{alan.kullanim_suresi}}</td>
+                        <td>
+                        {% for i in turnike %}
+                        {% if i.kullanilacakAlan.id == alan.id %} 
+                             {{i.turnikeAdi}}
+                        {% endif %}
+                        {% endfor %}
+                        </td> 
+                        <td><a href="/turnikeGuncelle/{{alan.id}}">
+                            <img src="../static/image/png/loop-2x.png" alt="">
+                    </tr>
+                    {% endfor %}
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    {% endblock %}

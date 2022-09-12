@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <h3>BUGÜN ÜYE OLAN KULLANICILAR</h3>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Bakiye Yükle</th>
+                        <th>Güncelle</th>
+                        <th>Sil</th>
+
+                        <th> Id </th>
+                        <th> Adı Soyadı </th>
+                        <th> Telefon</th>
+                        <th> Bakiye </th>
+                        <th> Kullanım Tipi </th>
+                        <th> Hesap Olusturma Tarihi </th>
+                        <th> Admin </th>
+                        <th> Giriş </th>
+                        <th> Çıkış </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        {% for rapor in rapor %}
+                    </tr>
+                    <tr>
+                        <td><a class="btn btn-success" href="/bakiyeYuklemeAyarlari/{{rapor.id}}">Bakiye Yükle</a></td>
+                        <td><a class="btn btn-warning" href="/ayarlar/{{rapor.id}}">Güncelle</a></td>
+                        <td><a class="btn btn-danger" href="/kullaniciSil/{{rapor.id}}">Sil</a></td>
+                        <td> {{rapor.id}} </th>
+                        <td> {{rapor.user.first_name}} {{rapor.user.last_name}}</td>
+                        <td> {{rapor.telefonNumarasi}} </td>
+                        <td> {{rapor.bakiye}}</td>
+                        <td>{{rapor.kullanimTipi}} </td>
+                    
+                        <td> {{rapor.hesap_olusturma_tarihi}}</td>
+                        <td> {{rapor.admin}}</td>
+                        <td><a class="btn btn-primary" href="/kullanici_giris/{{rapor.id}}">Giriş</a></td>
+                        <td><a class="btn btn-danger" href="/bakiyeYuklemeAyarlari/{{rapor.id}}">Çıkış</a></td>
+
+                    </tr>
+
+
+                    {%endfor%}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    {% endblock %}
+

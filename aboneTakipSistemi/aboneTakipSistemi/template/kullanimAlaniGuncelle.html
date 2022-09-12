@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+
+            <h3>Kullanım Alanı Güncelle</h3>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+
+            <form action="{% url 'aboneApp:kullanimAlaniGuncelle' guncelle.id %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <span>Kullanım Alanı Adı</span>
+                    <input type="text" required="" name="ad" value="{{guncelle.kullanimAlani}}" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <span>Abone Ücret</span>
+                    <input type="number" step="any" id="totalAmt" required="" name="abone_ucret"
+                        value="{{guncelle.abone_ucret}}" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <span>Tek Girişlik Ücret</span>
+                    <input type="number" step="any" id="totalAmt" required="" name="tek_girislik_ucret"
+                        value="{{guncelle.tek_girislik_ucret}}" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <span>Kullanım Süresi</span>
+                    <input type="number" step="any" id="totalAmt" required="" name="kullanim_suresi"
+                        value="{{guncelle.kullanim_suresi}}" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <span>Turnike Numarası</span>
+                    <input type="number" step="any" id="totalAmt" required="" name="turnikeId"
+                    value="{{guncelle.turnikeId}}" class="form-control">
+                </div>
+
+                <div class="form-group mt-2">
+                    <input class="btn btn-success" type="submit" value="Güncelle">
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

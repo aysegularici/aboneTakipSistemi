@@ -1,0 +1,47 @@
+<div class="col-md-4">
+    <h3>BUGÜN ÜYE OLAN KULLANICILAR</h3>
+</div>
+</div>
+<div class="row justify-content-center">
+<div class="col-md-10">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th> Id </th>
+                <th> Adı Soyadı </th>
+                <th> Telefon</th>
+                <th> Bakiye </th>
+                <th> Kullanım Tipi </th>
+                <th> Kullanım Alanı </th>
+                <th> Hesap Olusturma Tarihi </th>
+                <th> Admin </th>
+            </tr>
+        </thead>
+        <tbody>
+
+         
+            <tr>
+                <td> {{rapor.id}} </th>
+                <td> {{rapor.user.first_name}} {{rapor.user.last_name}}</td>
+                <td> {{rapor.telefonNumarasi}} </td>
+                <td> {{rapor.bakiye}}</td>
+                <td>{{rapor.kullanimTipi}} </td>
+                <td>{% for a in data %}
+                    {{a}}
+                    <br>
+                    {% endfor %}
+                </td>
+                <td> {{rapor.hesap_olusturma_tarihi}}</td>
+                <td> {{rapor.admin}}</td>
+
+            </tr>
+
+
+         
+        </tbody>
+    </table>
+
+</div>
+</div>
+
+

@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <!-- <div class="col-md-4">
+            <h1></h1>
+        </div> -->
+    </div>
+    <div class=" container ">
+        <div class="row justify-content-center">
+
+                <div class="row justify-content-center">
+                    <div class="col-6">
+
+                        <div class="card bg-danger text-black mb-4 h-90">
+                            <div class="card-body text-center" style="font-size: 20px;" >Şuan İçerde Olan Kullanıcı Sayısı</div>
+                            <span class="text-center " style="font-size: 40px;">{{suan_icerde_sayisi}}</span>
+                            <div class="card-footer d-flex align-items-center justify-content-between">
+                                <a class="medium text-black stretched-link" href="../icerdekiler/">Detay</a>
+                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            <div class="row ">
+
+                <div class="col-xl-4 col-md-6">
+                    <div class="card bg-warning text-black font-weight-bold mb-4 h-90">
+                        <div class="card-body text-center" style="font-size: 20px;">Bugün Giriş Yapan Kullanıcı Sayısı</div>
+                        <span class="text-center "  style="font-size: 40px; ">{{bugun_giris_sayisi}}</span>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <a class="medium text-black stretched-link" href="../bugunGirenler/">Detay</a>
+                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-4 col-md-6">
+                    <div class="card bg-success text-black mb-4 h-90">
+                        <div class="card-body text-center" style="font-size: 20px;">Bugün Giriş-Çıkış Tutarı</div>
+                        <span class="text-center " style="font-size: 40px;">{{bugun_toplam}}</span>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <!-- <a class="medium text-black stretched-link" href="../bugunTutar/">Detay</a> -->
+                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-4 col-md-6">
+                    <div class="card bg-primary text-black mb-4 h-90 ">
+                        <div class="card-body text-center" style="font-size: 20px;">Bugün Yüklenen Bakiye</div>
+                        <span class="text-center " style="font-size: 40px;">{{bugun_bakiye_toplam}} </span>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <a class="medium text-black stretched-link" href="../bugunBakiye/">Detay</a>
+                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-md-6">
+                <div class="card bg-warning text-black mb-4 h-90">
+                    <div class="card-body text-center" style="font-size: 20px;">Bu Ay Giriş Yapan Kullanıcı Sayısı</div>
+                    <span class="text-center " style="font-size: 40px;">{{ay_giris_sayisi}}</span>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="medium text-black stretched-link" href="../buAyGirenler/">Detay</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-md-6">
+                <div class="card bg-success text-black mb-4 h-90">
+                    <div class="card-body text-center" style="font-size: 20px;">Bu Ay Giriş-Çıkış Tutarı</div>
+                    <span class="text-center " style="font-size: 40px;">{{ay_toplam}}</span>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <!-- <a class="medium text-black stretched-link" href="../buAyTutar/">Detay</a> -->
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-md-6">
+                <div class="card bg-primary text-black mb-4 h-90">
+                    <div class="card-body text-center" style="font-size: 20px;">Bu Ay Yüklenen Bakiye</div>
+                    <span class="text-center " style="font-size: 40px;">{{ay_bakiye_toplam}}</span>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="medium text-black stretched-link" href="../buAyBakiye/">Detay</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+</div>
+    {% endblock %}

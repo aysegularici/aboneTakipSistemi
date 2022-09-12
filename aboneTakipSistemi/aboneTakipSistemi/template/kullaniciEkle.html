@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <h4>KULLANICI EKLE</h4>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <form action="{% url 'aboneApp:kullaniciEkle'%}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <span>Kullanıcı Adı</span>
+          <input type="text" required="" name="username" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <span>Ad</span>
+          <input type="text" required="" name="ad" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <span>Soyad</span>
+          <input type="text" required="" name="soyad" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <span>email</span>
+          <input type="email" id="email" name="email" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <span>Telefon Numarası</span>
+          <input type="text" required="" name="telefon" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <span>Bakiye</span>
+          <input type="number" step="any" id="totalAmt" required="" name="bakiye" min=0 class="form-control">
+        </div>
+
+        <div class="form-group">
+          <span>Kullanım Tipi</span>
+          <select id="kullanimTipi" name="kullanimTipi" class="form-control">
+            <option value="Abone">Abone</option>
+            <option value="TekKullanim">Tek Giriş</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <span>Kullanım Alani</span>
+          <select id="kullanimAlani" multiple name="kullanimAlani" class="form-control">
+            {% for kullanimAlani in alan %}
+            <option value="{{kullanimAlani.id}}">{{kullanimAlani.kullanimAlani}}</option>
+            {%endfor%}
+          </select>
+        </div>
+
+        <div class="form-group">
+          <span>Kart Numarası:</span>
+          <input type="text" required="" name="kartId" class="form-control">
+        </div>
+
+
+        <div class="form-group mt-2">
+          <input class="btn btn-success" type="submit" value="Kaydet">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
